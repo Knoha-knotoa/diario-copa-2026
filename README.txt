@@ -277,3 +277,9 @@ AJUSTE DE NAVEGAÇÃO
 - Removida a aba "Livro PDF" da barra de fases.
 - A navegação agora mantém apenas a aba "Scrapbook Final" para orientar a exportação e criação do livro depois.
 - Botões que apontavam para Livro PDF foram redirecionados para Scrapbook.
+
+
+AJUSTE DE NAVEGAÇÃO NO CELULAR
+- O menu de abas não fica mais fixado no topo.
+- Agora ele rola normalmente junto com a página.
+- Isso melhora a navegação no celular e evita que o menu cubra os campos.

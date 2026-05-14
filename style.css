@@ -2501,3 +2501,29 @@
     top:0 !important;
   }
 }
+
+
+/* Ajuste mobile: menus deixam de ficar fixados no topo */
+.phasebar,
+.localMobileTools,
+.localSaveStatus{
+  position:static !important;
+  top:auto !important;
+  z-index:auto !important;
+}
+
+@media(max-width:700px){
+  .phasebar{
+    position:static !important;
+    top:auto !important;
+    z-index:auto !important;
+    background:transparent !important;
+  }
+
+  .localMobileTools,
+  .localSaveStatus{
+    position:static !important;
+    top:auto !important;
+    z-index:auto !important;
+  }
+}
