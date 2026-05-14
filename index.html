@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta name="theme-color" content="#14532d">
+  <link rel="manifest" href="manifest.json">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Copa 2026">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Livro da Copa 2026</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="localSaveStatus" class="localSaveStatus">💾 Salvamento local pronto</div>
+<div class="app">
+  <header class="hero">
+    <span class="badge">⚽ Livro local • Copa 2026 • primeira Copa</span>
+    <h1>Livro da Copa 2026</h1>
+    <p>Registre jogos, seleções, fotos, favoritos e diário da primeira Copa que ele vai acompanhar.</p>
+  </header>
+
+  <section class="stats" id="stats"></section>
+  <nav class="phasebar" id="phasebar"></nav>
+  <main id="main"></main>
+
+  <p class="footer">Feito para brincar em família. Funciona no navegador e salva os dados neste computador.</p>
+</div>
+
+<input id="fileInput" type="file" accept="application/json" class="hidden">
+
+<script src="dados-copa.js"></script>
+<script src="jogadores.js"></script>
+<script src="app.js"></script>
+<script>
+if ("serviceWorker" in navigator && location.protocol !== "file:") {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./sw.js").catch(err => console.warn("Service worker não registrado:", err));
+  });
+}
+</script>
+</body>
+</html>

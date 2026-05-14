@@ -1,0 +1,18 @@
+{
+  "name": "Livro da Copa 2026",
+  "short_name": "Copa 2026",
+  "description": "Diário local da Copa 2026 com placares, fotos e memórias.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#14532d",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
