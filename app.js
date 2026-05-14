@@ -45,7 +45,6 @@ const PHASES = [
   {id:"teams", label:"Seleções", short:"Jogadores", matches:null, title:"Seleções e jogadores", unlock:()=>true},
   {id:"api", label:"API", short:"Dados oficiais", matches:null, title:"API-Football", unlock:()=>true},
   {id:"diary", label:"Área pessoal", short:"Diário + fotos", matches:null, title:"Área pessoal", unlock:()=>true},
-  {id:"report", label:"Livro PDF", short:"Livro", matches:null, title:"Livro da Copa", unlock:()=>true},
   {id:"scrapbook", label:"Scrapbook Final", short:"Guia", matches:null, title:"Scrapbook Final", unlock:()=>true},
   {id:"r32", label:"16 avos", short:"16", matches:R32, title:"16 avos de final", unlock:()=>true},
   {id:"r16", label:"Oitavas", short:"8", matches:R16, title:"Oitavas de final", unlock:()=>true},
@@ -428,7 +427,7 @@ function renderDiary(){
     <section class="personalNavCards">
       <button onclick="document.getElementById('diaryList')?.scrollIntoView({behavior:'smooth',block:'start'})">📔<b>Diário dos jogos</b><small>relatos, emoção e fotos</small></button>
       <button onclick="document.getElementById('favoritesPanel')?.scrollIntoView({behavior:'smooth',block:'start'})">⭐<b>Meus favoritos</b><small>os melhores momentos da Copa</small></button>
-      <button onclick="goPhase('report')">📘<b>Livro PDF</b><small>gerar o livro final</small></button>
+      <button onclick="goPhase('scrapbook')">📘<b>Scrapbook</b><small>gerar o livro final</small></button>
       <button onclick="exportData()">💾<b>Backup</b><small>salvar o progresso</small></button>
     </section>
 
@@ -1119,7 +1118,7 @@ function renderHome(){
         <div class="homeActions">
           <button class="btn green" onclick="goPhase('grupos')">Registrar jogos</button>
           <button class="btn secondary" onclick="goPhase('diary')">Escrever diário</button>
-          <button class="btn secondary" onclick="goPhase('report')">Ver livro PDF</button>
+          <button class="btn secondary" onclick="goPhase('scrapbook')">Ver Scrapbook</button>
         </div>
       </div>
       <div class="homeNextCard">
@@ -1154,7 +1153,7 @@ function renderHome(){
           <button onclick="goPhase('grupos')">⚽<b>Jogos</b><small>placares, gols e MVP</small></button>
           <button onclick="goPhase('teams')">🌎<b>Seleções</b><small>jogadores e estatísticas</small></button>
           <button onclick="goPhase('diary')">📔<b>Área pessoal</b><small>diário e fotos</small></button>
-          <button onclick="goPhase('report')">📘<b>Livro PDF</b><small>gerar lembrança final</small></button><button onclick="goPhase('scrapbook')">✂️<b>Scrapbook</b><small>guia para o livro final</small></button>
+          <button onclick="goPhase('scrapbook')">📘<b>Scrapbook</b><small>gerar lembrança final</small></button><button onclick="goPhase('scrapbook')">✂️<b>Scrapbook</b><small>guia para o livro final</small></button>
         </div>
       </div>
       <div class="homePanel">
@@ -1747,7 +1746,7 @@ Livro-Copa-2026/
 
 COMO GERAR:
 1. No app, clique em Exportar backup.
-2. No app, abra Livro PDF e salve o PDF simples.
+2. No app, abra Scrapbook e salve o PDF simples.
 3. Separe as melhores fotos em pastas.
 4. Mantenha nomes fáceis de entender, por exemplo:
    - brasil-x-franca-final-familia.jpg
@@ -1805,7 +1804,7 @@ function renderScrapbookGuide(){
       <h2>3. Ações importantes</h2>
       <div class="scrapbookActions">
         <button class="btn green" onclick="exportData()">Exportar backup do app</button>
-        <button class="btn secondary" onclick="goPhase('report')">Abrir Livro PDF simples</button>
+        <button class="btn secondary" onclick="goPhase('scrapbook')">Abrir guia do Scrapbook</button>
         <button class="btn secondary" onclick="downloadScrapbookGuide()">Baixar guia do scrapbook</button>
       </div>
       <div class="scrapbookTip">
@@ -1848,7 +1847,7 @@ function renderLocalMobileTools(){
 
 function render(){renderLocalMobileTools();renderStats();renderPhasebar();if(!activePhaseObj().unlock())activePhase="grupos";if(activePhase==="home")renderHome();else if(activePhase==="grupos")renderGroups();else if(activePhase==="teams")renderTeams();else if(activePhase==="diary")renderDiary();else if(activePhase==="api")renderApi();else if(activePhase==="report")renderReport();else if(activePhase==="scrapbook")renderScrapbookGuide();else renderKo(activePhaseObj());}
 function renderGroups(){const st=standings();document.getElementById("main").innerHTML=`
-  <div class="toolbar"><strong>Jogos da Copa</strong><button class="btn secondary" onclick="openAllGroups()">Abrir todos</button><button class="btn secondary" onclick="closeAllGroups()">Fechar todos</button><button class="btn secondary" onclick="exportData()">Exportar</button><button class="btn secondary" onclick="importData()">Importar</button><button class="btn green" onclick="goPhase('report')">Gerar livro PDF</button></div>
+  <div class="toolbar"><strong>Jogos da Copa</strong><button class="btn secondary" onclick="openAllGroups()">Abrir todos</button><button class="btn secondary" onclick="closeAllGroups()">Fechar todos</button><button class="btn secondary" onclick="exportData()">Exportar</button><button class="btn secondary" onclick="importData()">Importar</button><button class="btn green" onclick="goPhase('scrapbook')">Abrir Scrapbook</button></div>
   <div class="notice info">Abra os grupos e registre cada jogo como uma página do álbum: placar, gols, MVP, escalações e detalhes da experiência.</div>
   <div class="groupList">${Object.keys(GROUPS).map(g=>groupCard(g,st[g])).join("")}</div>`;}
 function groupCard(g,rows){const complete=groupComplete(g);const progress=completedGroupMatches(g);const open=openGroups.has(g);const teams=GROUPS[g].join(" • ");return `<section class="groupCard" id="grupo-${g}">

@@ -2485,3 +2485,19 @@
     font-size:22px !important;
   }
 }
+
+
+/* Remoção da barra extra superior no celular */
+.localMobileTools{
+  display:none !important;
+}
+
+.localSaveStatus{
+  display:none !important;
+}
+
+@media(max-width:700px){
+  .phasebar{
+    top:0 !important;
+  }
+}

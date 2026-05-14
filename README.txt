@@ -266,3 +266,14 @@ Atenção:
 Fotos:
 - Fotos entram no backup final.
 - Fotos grandes deixam o arquivo pesado. Se possível, use fotos menores.
+
+
+AJUSTE VISUAL
+- Removida a barra superior extra com os botões Jogos, Diário, Salvar, Backup e Teste.
+- O app passa a usar apenas a navegação normal dentro do corpo do aplicativo.
+
+
+AJUSTE DE NAVEGAÇÃO
+- Removida a aba "Livro PDF" da barra de fases.
+- A navegação agora mantém apenas a aba "Scrapbook Final" para orientar a exportação e criação do livro depois.
+- Botões que apontavam para Livro PDF foram redirecionados para Scrapbook.
